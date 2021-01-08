@@ -1,0 +1,23 @@
+<nav class="menu navbar sticky-top navbar-expand-lg navbar-light bgFra shadow">
+	<div class="container-fluid">
+		<a class="navbar-brand brandFont ms-0 me-0 d-block d-sm-none" href="/">CurrentCourant</a>
+		<a class="navbar-brand brandFont me-0 d-none d-sm-block me-md-2 me-xl-4 ms-4 ms-lg-0 ms-xl-4" href="/">CurrentCourant.ca</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span id="customMenu" class="ccBtn navText">Menu</span>
+		</button>
+		<div class="collapse navbar-collapse navText" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="ccBtn ms-xs-0 ms-sm-4 ms-lg-1 ms-xl-2 me-lg-2 me-xl-3 mt-4 mt-lg-2 mb-2" href="/articles">Articles</a>
+				<a class="ccBtn ms-xs-0 ms-sm-4 ms-lg-1 ms-xl-2 me-lg-1 me-xl-3 mt-3 mt-lg-2 mb-2" href="/articles/new">Publiez</a>
+			</div>
+			<div class="navbar-nav ms-auto">
+				<% if(!currentUser) { %>
+				<a class="ccBtn ms-xs-0 ms-sm-4 ms-lg-1 ms-xl-2 me-lg-2 me-xl-3 mt-3 mt-lg-2 mb-2" href="/login">Connexion</a>
+				<a class="ccBtn ms-xs-0 ms-sm-4 ms-lg-1 ms-xl-2 me-lg-0 me-xl-4 mt-3 mt-lg-2 mb-4 mb-lg-2" href="/register">Inscription</a>
+				<% } else { %>
+				<a class="ccBtn ms-xs-0 ms-sm-4 ms-lg-1 ms-xl-2 me-lg-0 me-xl-4 mt-3 mt-lg-2 mb-4 mb-lg-2" href="/logout">D&eacute;connexion</a>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</nav>

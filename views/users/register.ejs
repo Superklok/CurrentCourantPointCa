@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %>
+<div class="container justify-content-center align-items-center mt-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+			<div class="card mb-3 shadow bgFra">
+				<div class="card-body">
+					<h5 class="card-title text-center mdText contentFont mb-3">Inscription d'auteur(e)</h5>
+					<form action="/register" method="POST" class="validateForm" novalidate>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="username">Nom d'utilisateur</label>
+							<input class="form-control bgFra" type="text" id="username" name="username" placeholder="Nom d'utilisateur" autofocus required>
+							<div class="valid-feedback">
+								G&eacute;nial!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="courriel">Courriel</label>
+							<input class="form-control bgFra" type="email" id="courriel" name="courriel" placeholder="Courriel" required>
+							<div class="valid-feedback">
+								Parfait!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="password">Mot de passe</label>
+							<input class="form-control bgFra" type="password" id="password" name="password" placeholder="Mot de passe" required>
+							<div class="valid-feedback">
+								Chouette!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label class="form-label smText contentFont" for="codeAuteur">Code d'auteur</label>
+							<input class="form-control bgFra" type="text" id="codeAuteur" name="codeAuteur" placeholder="Code d'auteur" required>
+							<div class="valid-feedback">
+								Merci d'avoir &eacute;valu&eacute; Le Current Courant!
+							</div>
+						</div>
+						<button class="ccBtn mdBtn w-100">Inscrire</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

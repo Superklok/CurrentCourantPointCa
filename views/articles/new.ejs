@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+	<div class="card shadow bgFra">
+		<div class="card-body">
+			<h1 class="text-center mdText contentFont">Nouvel article</h1>
+			<div class="col-lg-6 offset-lg-3 col-xl-8 offset-xl-2">
+				<form action="/articles" method="POST" novalidate class="validateForm" enctype="multipart/form-data">
+					<div class="mb-3">
+						<label class="form-label smText contentFont" for="titre">Titre</label>
+						<input class="form-control bgFra" type="text" id="titre" name="article[titre]" placeholder="Titre" autofocus required>
+						<div class="valid-feedback">
+							G&eacute;nial!
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="image" class="form-label smText contentFont">Choisir image(s)...</label>
+						<input class="form-control bgFra" type="file" id="image" multiple name="image" required>
+						<div class="valid-feedback">
+							&Ccedil;a l'air super!
+						</div>
+					</div>
+					<div class="mb-3">
+						<label class="form-label smText contentFont" for="contenu">Contenu</label>
+						<textarea class="form-control bgFra" type="text" id="contenu" name="article[contenu]" required></textarea>
+						<div class="valid-feedback">
+							Une &oelig;uvre magnifique!
+						</div>
+					</div>
+					<div class="mb-3">
+						<button class="ccBtn mdBtn">Publiez l'article</button>
+					</div>
+				</form>
+				<div>
+					<a class="ccBtn mdBtn" href="/articles">Tous les articles</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

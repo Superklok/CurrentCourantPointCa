@@ -1,0 +1,93 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+	<div class="col-lg-8 offset-lg-2 col-xl-10 offset-xl-1">
+		<div id="articleCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+			<div class="carousel-inner">
+				<% article.images.forEach((img, i) => { %>
+				<div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+					<img src="<%= img.url %>" class="d-block w-100" alt="">
+				</div>
+				<% }) %>
+			</div>
+			<% if(article.images.length > 1) { %>
+			<a class="carousel-control-prev" href="#articleCarousel" role="button" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Pr&eacute;c&eacute;dente</span>
+			</a>
+			<a class="carousel-control-next" href="#articleCarousel" role="button" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Prochaine</span>
+			</a>
+			<% } %>
+		</div>
+		<div class="card shadow mb-3 bgFra">
+			<div class="card-body">
+				<h5 class="card-title mdText contentFont"><%= article.titre %></h5>
+				<p class="card-text smText contentFont"><span class="ccBtn mdBtn"><%= article.auteur.username %></span><i> a r&eacute;dig&eacute; cet article</i></p>
+			</div>
+			<div class="card-body">
+				<p class="card-text smText contentFont"><%= article.contenu %></p>
+			</div>
+			<% if (currentUser && article.auteur.equals(currentUser._id)) { %>
+			<div class="card-body">
+				<a class="ccBtn mdBtn me-5" href="/articles/<%= article._id %>/edit">Modifier</a>
+				<form class="d-inline" action="/articles/<%= article._id %>?_method=DELETE" method="POST">
+					<button class="ccBtn mdBtn">Supprimer</button>
+				</form>
+			</div>
+			<% } %>
+			<hr>
+			<div class="card-body">
+				<a class="ccBtn mdBtn" href="/articles">Tous les articles</a>
+			</div>
+		</div>
+		<% if (currentUser) { %>
+		<div class="card shadow mb-3 bgFra">
+			<div class="card-body">
+				<h2 class="mb-4 pb-3 mdText contentFont">Laissez votre avis</h2>
+				<form action="/articles/<%= article._id %>/critiques" method="POST" class="mb-3 validateForm" novalidate>
+					<div class="ms-5 mb-3">
+						<fieldset class="starability-coinFlip">
+							<input type="radio" id="no-rate" class="input-no-rate" name="critique[note]" value="0" checked aria-label="Aucune note." />
+							<input type="radio" id="first-rate1" name="critique[note]" value="1" />
+							<label for="first-rate1" title="Affreux">1 &eacute;toile</label>
+							<input type="radio" id="first-rate2" name="critique[note]" value="2" />
+							<label for="first-rate2" title="Pas bon">2 &eacute;toiles</label>
+							<input type="radio" id="first-rate3" name="critique[note]" value="3" />
+							<label for="first-rate3" title="Moyenne">3 &eacute;toiles</label>
+							<input type="radio" id="first-rate4" name="critique[note]" value="4" />
+							<label for="first-rate4" title="Tr&egrave;s bonne">4 &eacute;toiles</label>
+							<input type="radio" id="first-rate5" name="critique[note]" value="5" />
+							<label for="first-rate5" title="Incroyable">5 &eacute;toiles</label>
+						</fieldset>
+					</div>
+					<div class="mb-3">
+						<label class="form-label mdText contentFont" for="body">Critique</label>
+						<textarea class="form-control bgFra" name="critique[body]" id="body" cols="30" rows="3" required></textarea>
+						<div class="valid-feedback xsText contentFont">
+							Merci!
+						</div>
+					</div>
+					<button class="ccBtn mdBtn">Soumettre</button>
+				</form>
+			</div>
+		</div>
+		<% } %>
+		<% for(let critique of article.critiques) { %>
+		<div class="card shadow mb-3 bgFra">
+			<div class="card-body">
+				<h5 class="card-title ccBtn mdBtn"><%= critique.auteur.username %></h5>
+				<p class="starability-result" data-rating="<%= critique.note %>">
+					<span class="srRating">Not&eacute; <%= critique.note %> &eacute;toiles</span>
+				</p>
+				<p class="card-text smText contentFont">"<%= critique.body %>"</p>
+				<% if (currentUser && critique.auteur.equals(currentUser._id)) { %>
+				<form action="/articles/<%= article._id %>/critiques/<%= critique._id %>?_method=DELETE" method="POST">
+					<button class="ccBtn mdBtn">Supprimer</button>
+				</form>
+				<% } %>
+			</div>
+		</div>
+		<% } %>
+	</div>
+</div>

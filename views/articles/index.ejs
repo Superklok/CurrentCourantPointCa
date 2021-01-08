@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="text-center lgText brandFont my-3 pt-3 pb-2 titreFra">Le Current Courant</h1>
+<hr>
+<a class="ccBtn navText ms-2 me-3 my-2" href="/articles/new">Contribuez</a>
+<hr class="mb-5">
+<div class="row">
+	<% for (let article of articles){ %>
+	<div class="col-md-6 col-lg-4 col-xl-3">
+		<div class="card mb-3 bgFra">
+			<% if (article.images.length) { %>
+			<img class="img-fluid" alt="" src="<%= article.images[0].url %>">
+			<% } else { %>
+			<img class="img-fluid" alt="" src="">
+			<% } %>
+			<div class="card-body">
+				<h5 class="card-title mdText contentFont"><%= article.titre %></h5>
+				<p class="card-text smText contentFont"><%= article.contenu.substring(0, 300) %>...</p>
+				<a class="ccBtn mdBtn" href="/articles/<%= article._id %>">Lire la suite</a>
+			</div>
+		</div>
+	</div>
+	<% } %>
+</div>
