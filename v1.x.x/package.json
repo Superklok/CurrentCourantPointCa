@@ -1,6 +1,6 @@
 {
   "name": "currentcourantpointca",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Le Current Courant (Français)",
   "main": "app.js",
   "scripts": {
@@ -11,12 +11,12 @@
     "type": "git",
     "url": "https://github.com/Superklok/CurrentCourantPointCa.git"
   },
-  "author": "Trev Morin <trev@superklok.com> (https://trevmorin.ca)",
+  "author": "Trev Morin <trev@superklok.ca> (http://trevmorin.ca)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Superklok/CurrentCourantPointCa/issues"
   },
-  "homepage": "https://currentcourant.ca",
+  "homepage": "http://currentcourant.ca",
   "dependencies": {
     "cloudinary": "^1.23.0",
     "connect-flash": "^0.1.1",
