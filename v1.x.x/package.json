@@ -1,6 +1,6 @@
 {
   "name": "currentcourantpointca",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "description": "Le Current Courant (Français)",
   "main": "app.js",
   "scripts": {
@@ -37,6 +37,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
-    "sanitize-html": "^2.3.0"
+    "pm2": "^5.1.2",
+    "sanitize-html": "^2.5.2"
   }
 }
