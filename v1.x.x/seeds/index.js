@@ -9,9 +9,9 @@ const articleImg1 = require('./articleImg1');
 const articleImg2 = require('./articleImg2');
 const Article = require('../models/article');
 // Base de données de production
-const urlBd = process.env.URL_BD;
+// const urlBd = process.env.URL_BD;
 // Base de données de développement
-// const urlBd = 'mongodb://localhost:27017/currentcourantpointca';
+const urlBd = 'mongodb://localhost:27017/currentcourantpointca';
 
 mongoose.connect(urlBd, {
 	useNewUrlParser: true,
@@ -35,9 +35,9 @@ const seedDB = async () => {
 		const article = new Article({
 			// auteur: 'ObjectId' (Dans le Shell MongoDB, lancez db.users.find() dès qu'un utilisateur a été créé.)
 			// Utilisateur de la base de données de production
-			auteur: '5ff7b183b47e4c4dc8e786c6',
+			// auteur: '5ff7b183b47e4c4dc8e786c6',
 			// Utilisateur de la base de données de développement
-			// auteur: '5ff76eed7b497641b07efd21',
+			auteur: '5ff76eed7b497641b07efd21',
 			titre: `${ sample(sujets) } ${ sample(adjectifs) }`,
 			contenu: `${ sample(contenu) }`,
 			images: [
