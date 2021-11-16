@@ -1,5 +1,5 @@
-const Article = require('../models/article');
-const Critique = require('../models/critique');
+const Article  = require('../models/article'),
+	  Critique = require('../models/critique');
 
 module.exports.createCritique = async (req, res) => {
 	const article = await Article.findById(req.params.id);

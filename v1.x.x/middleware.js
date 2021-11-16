@@ -1,7 +1,7 @@
-const {articleSchema, critiqueSchema} = require('./schemas.js');
-const ExpressError = require('./HELPeR/ExpressError');
-const Article = require('./models/article');
-const Critique = require('./models/critique');
+const {articleSchema, critiqueSchema} = require('./schemas.js'),
+	  ExpressError                    = require('./HELPeR/ExpressError'),
+	  Article                         = require('./models/article'),
+	  Critique                        = require('./models/critique');
 
 module.exports.isLoggedIn = (req, res, next) => {
 	if (!req.isAuthenticated()) {
@@ -14,8 +14,8 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.validateArticle = (req, res, next) => {
 	const {error} = articleSchema.validate(req.body);
 	if (error) {
-		const msg = error.details.map(el => el.message).join(',')
-		throw new ExpressError(msg, 400)
+		const msg = error.details.map(el => el.message).join(',');
+		throw new ExpressError(msg, 400);
 	} else {
 		next();
 	}
@@ -43,9 +43,9 @@ module.exports.isCommentateur = async (req, res, next) => {
 
 module.exports.validateCritique = (req, res, next) => {
 	const {error} = critiqueSchema.validate(req.body);
-	if(error){
-		const msg = error.details.map(el => el.message).join(',')
-		throw new ExpressError(msg, 400)
+	if (error) {
+		const msg = error.details.map(el => el.message).join(',');
+		throw new ExpressError(msg, 400);
 	} else {
 		next();
 	}

@@ -2,14 +2,16 @@ if (process.env.NODE_ENV !== "production") {
 	require('dotenv').config();
 }
 
-const mongoose = require('mongoose');
-const { adjectifs, sujets } = require('./articleTitres');
-const { contenu } = require('./articleContenu');
-const articleImg1 = require('./articleImg1');
-const articleImg2 = require('./articleImg2');
-const Article = require('../models/article');
+const mongoose              = require('mongoose'),
+	  { adjectifs, sujets } = require('./articleTitres'),
+	  { contenu }           = require('./articleContenu'),
+	  articleImg1           = require('./articleImg1'),
+	  articleImg2           = require('./articleImg2'),
+	  Article               = require('../models/article');
+
 // Base de données de production
 // const urlBd = process.env.URL_BD;
+
 // Base de données de développement
 const urlBd = 'mongodb://localhost:27017/currentcourantpointca';
 
@@ -33,11 +35,15 @@ const seedDB = async () => {
 		const random30Img1 = Math.floor(Math.random() * 30);
 		const random30Img2 = Math.floor(Math.random() * 30);
 		const article = new Article({
-			// auteur: 'ObjectId' (Dans le Shell MongoDB, lancez db.users.find() dès qu'un utilisateur a été créé.)
+
+			// **auteur: 'ObjectId' (Dans le Shell MongoDB, lancez db.users.find() dès qu'un utilisateur a été créé.)**
+
 			// Utilisateur de la base de données de production
 			// auteur: '5ff7b183b47e4c4dc8e786c6',
+
 			// Utilisateur de la base de données de développement
 			auteur: '5ff76eed7b497641b07efd21',
+
 			titre: `${ sample(sujets) } ${ sample(adjectifs) }`,
 			contenu: `${ sample(contenu) }`,
 			images: [
