@@ -1,4 +1,4 @@
-# Le Current Courant (Version française) v1.4.6
+# Le Current Courant (Version française) v1.4.7
 <br />
 
 ## Basic Root User Deployment Guide For App Evaluation
