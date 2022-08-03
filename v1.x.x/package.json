@@ -1,6 +1,6 @@
 {
   "name": "currentcourantpointca",
-  "version": "1.4.7",
+  "version": "1.4.17",
   "description": "Le Current Courant (Français)",
   "main": "app.js",
   "scripts": {

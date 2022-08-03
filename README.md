@@ -1,11 +1,11 @@
-# Le Current Courant (Version française) v1.4.7
+# Le Current Courant (Version française) v1.4.17
 <br />
 
 ## Basic Root User Deployment Guide For App Evaluation
 ###### This guide is intended for deployment testing purposes & it uses the Root user. Creating a new user is strongly suggested for a production setup.
 <br />
 
-### 1. Deploy a Cloud Compute Ubuntu 21.10 server from Vultr named "CCpointCa".
+### 1. Deploy a Cloud Compute Ubuntu 22.04 server from Vultr named "CCpointCa".
 <br />
 
 ### 2. Open a PowerShell (as Admin) terminal & connect to your CCpointCa server's IP address via SSH:
@@ -48,7 +48,7 @@
 <br />
 
 ### 5. Install Node onto the server:
-`curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash -`
+`curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
 <br />
 
 `sudo apt install nodejs`
